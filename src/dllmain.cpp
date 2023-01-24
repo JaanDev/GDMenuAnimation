@@ -76,7 +76,7 @@ bool __fastcall LoadingLayer_init_hk(CCLayer* self,  void*, bool fromReload) {
     if (!fs::exists(configName)) {
         std::ofstream outfile(configName);
 
-        outfile << "[General]\nAnimationSpeed = 15 // FPS of the animation basically (bigger => faster)\nUseAntiAlisaing = 1 // Use anti aliasing (smoothing the texture instead of a pixelart-like look). 0 or 1.";
+        outfile << "[General]\nAnimationSpeed = 15 // FPS of the animation basically (bigger => faster)\nUseAntiAliasing = 1 // Use anti aliasing (smoothing the texture instead of a pixelart-like look). 0 or 1.";
 
         outfile.close();
     }
@@ -84,7 +84,7 @@ bool __fastcall LoadingLayer_init_hk(CCLayer* self,  void*, bool fromReload) {
     ini_t* config = ini_load(configName.c_str());
 
     animSpeed = atof(ini_get(config, "General", "AnimationSpeed"));
-    useAntiAlias = atoi(ini_get(config, "General", "UseAntiAlisaing"));
+    useAntiAlias = atoi(ini_get(config, "General", "UseAntiAliasing"));
 
     ini_free(config);
 
