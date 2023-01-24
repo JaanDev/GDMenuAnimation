@@ -8,7 +8,7 @@ On the first launch the config file will be generated.
 ```ini
 [General]
 AnimationSpeed = 15 // FPS of the animation basically (bigger => faster)
-UseAntiAliasing = 1 // Use anti aliasing (smoothing the texture instead of a pixelart-like look). 0 or 1.
+UseAntiAliasing = 0 // Use anti aliasing (smoothing the texture instead of a pixelart-like look). 0 or 1.
 ```
 You can edit it freely to any values you'd like.
 
