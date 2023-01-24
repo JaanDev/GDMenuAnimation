@@ -114,7 +114,11 @@ bool (__thiscall* MenuLayer_init_o)(CCLayer* self);
 bool __fastcall MenuLayer_init_hk(CCLayer* self, void*) {
     if (!MenuLayer_init_o(self)) return false;
 
-    dynamic_cast<CCNode*>(self->getChildren()->objectAtIndex(0))->removeFromParent();
+    CCARRAY_FOREACH_BETTER(self->getChildren(), CCNode*, obj) {
+        if (*(uintptr_t*)obj - (uintptr_t)gd::base == 0x2cd41c) { // getting if a node is a MenuGameLayer*
+            obj->removeFromParent();
+        }
+    }
 
     self->addChild(getBGSprite(), -1);
 

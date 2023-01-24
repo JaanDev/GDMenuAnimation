@@ -33,6 +33,11 @@ inline Logger& operator<<(Logger& l, CCPoint p) {
 #define HOOK(addr, hook, orig) MH_CreateHook((PVOID)(gd::base + addr), hook, (LPVOID*)&orig)
 #define CC_HOOK(symbol, hook, orig) MH_CreateHook((PVOID)((int)GetProcAddress(GetModuleHandle("libcocos2d.dll"), symbol)), hook, (PVOID*)&orig)
 
+// credits to HJFod
+#define CCARRAY_FOREACH_BETTER(array, type, name) \
+    if (array && array->count()) \
+        for (auto [i, name] = std::tuple<size_t, type> {0u, nullptr}; i < array->count() && (obj = (type)array->objectAtIndex(i)); i++)
+
 namespace fs = std::filesystem;
 
 string currentPath() {
